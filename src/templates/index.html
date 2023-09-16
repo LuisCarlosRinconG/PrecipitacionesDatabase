@@ -1,0 +1,63 @@
+<!--persona=datos
+Personas=precipitaciones
+-->
+<!--
+    Para inspeccionar alguna pagina como formato html se puede hacer con:
+    ctrl + u
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flask with Mongo</title>
+</head>
+<body>
+    <h1>BIENVENIDO</h1>
+    <h2>* Registro </h2>
+    <form action = "/guardar_datos" method = "post">
+        <input type = "text" name = "fecha">
+        <input type = "text" name = "hora">
+        <input type = "text" name = "Po">
+        <input type = "text" name = "T">
+        <input type = "text" name = "U">
+        <input type = "text" name = "Ff">
+        <input type = "text" name = "PPP">
+        <button type = "submit">Guardar</button>
+
+    </form>
+
+    <h2>* Visualización de datos </h2>
+    
+    <!--
+        Se utiliza jinja2 para hacer la visualización y correspondiente actualización de los datos mediante un for que recorra todas nuestras colecciones
+    -->
+
+    {%for precipitacion in precipitaciones %}
+    <!--<li>
+           
+           Nombre:  {{persona.nombre}} <br>
+           Apellido:  {{persona.apellido}}<br>
+           Telefono:  {{persona.telefono}}<br>
+            <br>
+    </li> -->
+    
+    <!-- Se añade un criterio de busqueda el cual va a ser nombre por medio de jinja2 para actualizar por medio de llamar el objeto con su parametro correspondiente de app.py-->
+    <form action="/editar_dato/{{ precipitacion.fecha }}" method="post">
+        <input type="text" name="fecha" value="{{precipitacion.fecha}}">
+        <input type="text" name="hora" value="{{precipitacion.hora}}">
+        <input type="text" name="Po" value="{{precipitacion.Po}}">
+        <input type="text" name="T" value="{{precipitacion.T}}">
+        <input type="text" name="U" value="{{precipitacion.U}}">
+        <input type="text" name="Ff" value="{{precipitacion.Ff}}">
+        <input type="text" name="PPP" value="{{precipitacion.PPP}}">
+        <button type="submit">Actualizar</button>
+        <!--Con la etiqueta de enlace y llamando al metodo eliminar se crea un acceso capaz de eliminar el registro-->
+        <!--Se añade javaScript para mandar un mensaje de alerta-->
+        <a href="{{url_for('eliminar', fecha_Precipitacion>=datos.fecha)}}"onclick="return confirm('¿Esta seguro de eliminar el registro con la fecha {{precipittacion.fecha}}? ')">Eliminar</a>
+        <hr>
+    </form>
+    {%endfor%}
+    
+</body>
+</html>

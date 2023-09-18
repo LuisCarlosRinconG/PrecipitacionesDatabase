@@ -17,7 +17,7 @@ def index():
 
 # Ruta para guardar los datos de la DB
 @app.route('/guardar_datos', methods = ['POST'])
-def agregarPersona():
+def agregarDatos():
     precipitaciones= con_bd['Datos']
     fecha = request.form['fecha']
     hora = request.form['hora']

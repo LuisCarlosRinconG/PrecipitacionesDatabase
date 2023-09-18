@@ -27,6 +27,8 @@ varriables que se ttendran en cuenta paraa el estudio
 
 '''
 
+
+
 class Precipitacion:
     def __init__(self, fecha, hora, Po,T,U,Ff,PPP):
         self.fecha = fecha

@@ -4,7 +4,7 @@ from pymongo.collection import ReturnDocument
 from pymongo import MongoClient
 
 # Conexión con MongoDB
-MONGO = 'mongodb+srv://Lupo:lupoprecipitacion@cluster0.0s3yt3s.mongodb.net/?retryWrites=true&w=majority'
+MONGO = 'mongodb+srv://Lupo:precipitacionUDEC@cluster0.0s3yt3s.mongodb.net/?retryWrites=true&w=majority'
 
 # Utilización del certificado
 certificado = certifi.where()

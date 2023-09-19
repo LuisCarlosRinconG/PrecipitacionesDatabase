@@ -6,7 +6,7 @@
 #-Velocidad de viento    -    (fF)              -     anemometro
 #Calidad del aire        -    No hay             -     AirQuality
 #-Radiación solar        -    No hay             -     ldr
-#-Precipitacion          -    (ppp)             -     No hay -
+#-Precipitacion          -    (RRR)             -     No hay -
 
 
 '''
@@ -30,14 +30,14 @@ varriables que se ttendran en cuenta paraa el estudio
 
 
 class Precipitacion:
-    def __init__(self, fecha, hora, Po,T,U,Ff,PPP):
+    def __init__(self, fecha, hora, Po,T,U,Ff,RRR):
         self.fecha = fecha
         self.hora = hora
         self.Po = Po
         self.T = T
         self.U= U
         self.Ff = Ff
-        self.PPP= PPP
+        self.RRR= RRR
 
     # Metodo para almacenar los documentos
     def formato_doc(self):
@@ -48,5 +48,5 @@ class Precipitacion:
             'T':self.T,
             'U':self.U,
             'Ff':self.Ff,
-            'PPP':self.PPP
+            'RRR':self.RRR
         }

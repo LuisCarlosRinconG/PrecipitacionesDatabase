@@ -25,12 +25,12 @@ def agregarDatos():
     T = request.form['T']
     U= request.form['U']
     Ff = request.form['Ff']
-    PPP= request.form['PPP']
+    RRR= request.form['RRR']
 
     
 
-    if fecha and hora and Po and T and U and Ff and PPP:
-        precipitacion = Precipitacion(fecha, hora, Po,T,U,Ff,PPP)
+    if fecha and hora and Po and T and U and Ff and RRR:
+        precipitacion = Precipitacion(fecha, hora, Po,T,U,Ff,RRR)
         #insert_one para crear un documento en Mongo
         precipitaciones.insert_one(precipitacion.formato_doc())
         return redirect(url_for('index'))
@@ -59,11 +59,11 @@ def editar(fecha_Precipitacion):
     T = request.form['T']
     U= request.form['U']
     Ff = request.form['Ff']
-    PPP= request.form['PPP']
+    RRR= request.form['RRR']
     # Utilizaremos la función update_one()
-    if fecha and hora and Po and T and U and Ff and PPP:
+    if fecha and hora and Po and T and U and Ff and RRR:
         precipitaciones.update_one({'fecha': fecha_Precipitacion}, 
-                            {'$set': {'fecha' : fecha , 'hora': hora, 'Po': Po,'T': T ,'U': U ,'Ff': Ff ,'PPP': PPP}}) # update_one() necesita de al menos dos parametros para funcionar
+                            {'$set': {'fecha' : fecha , 'hora': hora, 'Po': Po,'T': T ,'U': U ,'Ff': Ff ,'RRR': RRR}}) # update_one() necesita de al menos dos parametros para funcionar
         return redirect(url_for('index'))
     else:
         return "Error de actualización"

@@ -16,14 +16,16 @@ Personas=precipitaciones
 <body>
     <h1>BIENVENIDO</h1>
     <h2>* Registro </h2>
-    <form action = "/guardar_datos" method = "post">
-        <input type = "text" name = "fecha" size="15" placeholder="Fecha">
-        <input type = "text" name = "hora" size="15" placeholder="Hora">
-        <input type = "text" name = "Po" size="15" placeholder="Po">
-        <input type = "text" name = "T" size="15" placeholder="T">
-        <input type = "text" name = "U" size="15" placeholder="U">
-        <input type = "text" name = "Ff" size="15" placeholder="Ff">
-        <input type = "text" name = "PPP" size="15" placeholder="PPP">
+    <form action = "/guardar_datos" method = "post">        
+        <input type = "text" name = "fecha" size="15" placeholder="Fecha = Año-Mes-Dia">
+        <input type = "text" name = "hora" size="15" placeholder="Hora = 00:00:00">
+        <input type = "number" name = "Po" size="15" placeholder="Po">
+        <input type = "number" name = "T" size="15" placeholder="T">
+        <input type = "number" name = "U" size="15" placeholder="U">
+        <input type = "number" name = "Ff" size="15" placeholder="Ff">
+        <input type = "number" name = "RRR" size="15" placeholder="RRR">
+        <br>
+        <br>
         <button type = "submit">Guardar</button>
 
     </form>
@@ -42,18 +44,21 @@ Personas=precipitaciones
         <h4>hora</h4>
         <input type="text" name="hora" value="{{precipitacion.hora}}">
         <h4>Po</h4>
-        <input type="text" name="Po" value="{{precipitacion.Po}}">
+        <input type="number" name="Po" value="{{precipitacion.Po}}">
         <h4>T</h4>
-        <input type="text" name="T" value="{{precipitacion.T}}">
+        <input type="number" name="T" value="{{precipitacion.T}}">
         <h4>U</h4>
-        <input type="text" name="U" value="{{precipitacion.U}}">
+        <input type="number" name="U" value="{{precipitacion.U}}">
         <h4>Ff</h4>
-        <input type="text" name="Ff" value="{{precipitacion.Ff}}">
-        <h4>PPP</h4>
-        <input type="text" name="PPP" value="{{precipitacion.PPP}}">
+        <input type="number" name="Ff" value="{{precipitacion.Ff}}">
+        <h4>RRR</h4>
+        <input type="number" name="RRR" value="{{precipitacion.RRR}}">
+        <br>
+        <br>
         <button type="submit">Actualizar</button>
         <!--Con la etiqueta de enlace y llamando al metodo eliminar se crea un acceso capaz de eliminar el registro-->
         <!--Se añade javaScript para mandar un mensaje de alerta-->
+        <br>
         <a href="{{url_for('eliminar', fecha_Precipitacion=precipitacion.fecha)}}"onclick="return confirm('¿Esta seguro de eliminar el registro con la fecha {{precipitacion.fecha}}? ')">Eliminar registro de la DB</a>
         <hr>
     </form>
